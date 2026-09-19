@@ -31,12 +31,14 @@ parser = StrOutputParser()
 chain = prompt1 | model | parser | prompt2 | model2 | parser| model3 | parser
 
 config = {
-    'topic': 'Unemployment in bangladesh and its impact on the economy',
+    'run_name': 'sequential_chain',
     'tags': ['economy', 'unemployment', 'bangladesh'],
-    'metadata': {'author': 'John Doe', 'date': '2023-10-01'}    ,
-    'paragraph': 'The unemployment rate in Bangladesh has been a growing concern for the government and economists alike. This report will explore the causes and effects of unemployment on the country\'s economy.'
+    'metadata': {'author': 'John Doe', 'date': '2023-10-01'},
 }
 
-result = chain.invoke(config)
+result = chain.invoke(
+    {'topic': 'Unemployment in bangladesh and its impact on the economy'},
+    config=config,
+)
 
 print(result)
