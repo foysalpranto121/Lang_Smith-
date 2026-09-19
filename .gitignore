@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local artifacts (FAISS indexes, SQLite checkpoints)
+*.faiss
+*.pkl
+*.db
+*.sqlite
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
