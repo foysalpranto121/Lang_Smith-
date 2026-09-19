@@ -10,6 +10,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 
+os.environ['LANGCHAIN_PROJECT'] = 'rag_v1 LLM APP'
+
+
 load_dotenv()  # expects OPENAI_API_KEY in .env
 
 PDF_PATH = "islr.pdf"  # <-- change to your PDF filename
