@@ -19,12 +19,24 @@ prompt2 = PromptTemplate(
     input_variables=['text']
 )
 
-model = ChatOpenAI()
+model = ChatOpenAI( model_name='gpt-4o', temperature=0.5, max_tokens=500)
+model2 = ChatOpenAI( model_name='gpt-4o', temperature=0.4, max_tokens=500)
+model3= ChatOpenAI( model_name='gpt-4o', temperature=0.25, max_tokens=500)
+
+
+
 
 parser = StrOutputParser()
 
-chain = prompt1 | model | parser | prompt2 | model | parser
+chain = prompt1 | model | parser | prompt2 | model2 | parser| model3 | parser
 
-result = chain.invoke({'topic': 'Unemployment in India'})
+config = {
+    'topic': 'Unemployment in bangladesh and its impact on the economy',
+    'tags': ['economy', 'unemployment', 'bangladesh'],
+    'metadata': {'author': 'John Doe', 'date': '2023-10-01'}    ,
+    'paragraph': 'The unemployment rate in Bangladesh has been a growing concern for the government and economists alike. This report will explore the causes and effects of unemployment on the country\'s economy.'
+}
+
+result = chain.invoke(config)
 
 print(result)
