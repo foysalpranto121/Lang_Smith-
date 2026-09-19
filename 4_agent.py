@@ -46,7 +46,7 @@ agent_executor = AgentExecutor(
 # Identify the birthplace city of Kalpana Chawla (search) and give its current temperature.
 
 # Step 5: Invoke
-response = agent_executor.invoke({"input": "What is the current temp of gurgaon"})
+response = agent_executor.invoke({"input": "What is the current temp of bangladesh?"})
 print(response)
 
 print(response['output'])
